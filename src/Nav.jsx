@@ -62,11 +62,11 @@ function ModuleBtn() {
   const setNavState = onToggleNav.setNavState;
 
   function handleToggleDropdown() {
+    if (navState !== "open") return;
+
     toggleDropdown === "open"
       ? setToggleDropdown("closed")
       : setToggleDropdown("open");
-
-    if (navState !== "open") setNavState("open");
   }
 
   return (
