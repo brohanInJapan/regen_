@@ -28,16 +28,5 @@
     "eslint-plugin-react-refresh": "^0.4.3",
     "gh-pages": "^6.0.0",
     "vite": "^4.4.5"
-  },
-  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
-  "main": "vite.config.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/brohanInJapan/regen_.git"
-  },
-  "author": "J.D.B. Symington",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/brohanInJapan/regen_/issues"
   }
 }
