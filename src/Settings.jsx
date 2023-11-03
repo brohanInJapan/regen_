@@ -1,4 +1,5 @@
 import { createContext, useContext, useRef, useState, useEffect } from "react";
+import { FileBrokenIcon } from "./assets/FileBrokenIcon";
 
 const toggleModuleState = createContext({});
 
@@ -18,12 +19,7 @@ export function Settings({ onToggleModule }) {
 function Profile() {
   return (
     <div className="btn-icon space-right">
-      <img
-        className="icon-24"
-        src="src/assets/icons_general/user_inv.svg"
-        alt=""
-        href="#"
-      />
+      <FileBrokenIcon />
     </div>
   );
 }
@@ -59,12 +55,7 @@ function Setting() {
 
   return (
     <div className="can-click" onClick={() => setModuleState("home")}>
-      <img
-        className="icon-28"
-        src="src/assets/icons_general/file_broken_inv.svg"
-        alt=""
-        href="#"
-      />
+      <FileBrokenIcon />
     </div>
   );
 }
@@ -75,12 +66,7 @@ function MapTest() {
 
   return (
     <div className="can-click" onClick={() => setModuleState("map")}>
-      <img
-        className="icon-28"
-        src="src/assets/icons_general/file_broken_inv.svg"
-        alt=""
-        href="#"
-      />
+      <FileBrokenIcon />
     </div>
   );
 }

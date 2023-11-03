@@ -1,23 +1,17 @@
 /* eslint-disable react/prop-types */
+import MenuToggleIcon from "./assets/icons_general/MenuToggleIcon";
+import HomeIcon from "./assets/icons_general/HomeIcon";
+
 export function Breadcrums({ ...onToggleNavState }) {
   const navStateProps = { ...onToggleNavState.onToggleNavState };
   const handleNavState = navStateProps.handleNavState;
 
   return (
-    <div className="changename">
-      <img
-        className="can-click"
-        src="src/assets/icons_general/menu_a.svg"
-        alt=""
-        onClick={handleNavState}
-      />
+    <div className="changename" onClick={handleNavState}>
+      <MenuToggleIcon />
       <div>
         <div className="breadcrums">
-          <img
-            className="can-click"
-            src="src/assets/icons_general/home_inv.svg"
-            alt=""
-          />
+          <HomeIcon />
           <Crums />
         </div>
         <p className="page-title">Page Title</p>

@@ -1,9 +1,12 @@
 import { useContext, createContext } from "react";
 import { useState } from "react";
+
 import { LogoIcon } from "./assets/LogoIcon";
 import { LogogrpahIcon } from "./assets/LogographIcon";
-import { FileBrokenIcon } from "./assets/fileBrokenIcon";
+import { FileBrokenIcon } from "./assets/FileBrokenIcon";
 import { ArrowDownIcon } from "./assets/ArrowDownIcon";
+import PlugIcon from "./assets/PlugIcon";
+import PlugIcon_s from "./assets/PlugIcon_s";
 
 const toggleNavContext = createContext({});
 
@@ -72,7 +75,7 @@ function ModuleBtn() {
         className={"module"}
         onClick={handleToggleDropdown}
         onChange={
-          navState === "close" && toggleDropdown === "open"
+          navState === "closed" && toggleDropdown === "open"
             ? setToggleDropdown("closed")
             : null
         }
@@ -102,14 +105,8 @@ function Plug() {
   const navState = onToggleNav.navState;
 
   return (
-    <img
-      className="plug"
-      src={
-        navState === "open"
-          ? "src/assets/empower.svg"
-          : "src/assets/empower_s.svg"
-      }
-      href="#"
-    ></img>
+    <div className="plug">
+      {navState === "open" ? <PlugIcon /> : <PlugIcon_s />}
+    </div>
   );
 }
