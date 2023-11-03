@@ -259,7 +259,7 @@ nav.closed .module {
   margin-block: var(--gap-m);
 
   > p,
-  > img {
+  > svg {
     display: none;
   }
 }
@@ -439,6 +439,15 @@ main {
     & p + p {
       font-size: 0.75rem;
       text-transform: unset;
+    }
+  }
+
+  > svg {
+    width: 24px;
+    height: 24px;
+
+    & path {
+      fill: var(--_foreground);
     }
   }
 }

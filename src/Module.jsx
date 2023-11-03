@@ -1,9 +1,7 @@
-/* eslint-disable react/prop-types */
-// import { P5Test } from "./P5Test";
 import { createContext, useContext } from "react";
 import { Toolbar } from "./Toolbar";
 import { Map } from "./Map";
-import { icon } from "leaflet";
+import { FileBrokenIcon } from "./assets/fileBrokenIcon";
 
 const toggleModuleState = createContext({});
 
@@ -29,7 +27,6 @@ function ModuleWindow() {
     <div className="container">
       {moduleState === "home" && <TestHome />}
       {moduleState === "map" && <Map />}
-      {/* <P5Test id="map" className="test-module" width={width} height={height} /> */}
     </div>
   );
 }
@@ -39,14 +36,15 @@ function TestHome() {
   return (
     <>
       <h1>Home Screen</h1>
+      <FileBrokenIcon />
 
       <button className="btn">
         <p>DELETE</p>
-        <img className="icon-24" src={icon} />
+        <FileBrokenIcon className="icon-24" />
       </button>
 
       <button className="btn">
-        <img className="icon-24" src={icon} />
+        <FileBrokenIcon />
         <div>
           <p>title</p>
           <p>test text</p>
@@ -61,7 +59,7 @@ function TestHome() {
       </button>
 
       <button className="btn-info">
-        <img className="icon-24" src={icon} />
+        <FileBrokenIcon />
       </button>
 
       <button className="btn-warning">

@@ -1,5 +1,9 @@
 import { useContext, createContext } from "react";
 import { useState } from "react";
+import { LogoIcon } from "./assets/LogoIcon";
+import { LogogrpahIcon } from "./assets/LogographIcon";
+import { FileBrokenIcon } from "./assets/fileBrokenIcon";
+import { ArrowDownIcon } from "./assets/ArrowDownIcon";
 
 const toggleNavContext = createContext({});
 
@@ -31,13 +35,7 @@ function Logo() {
 
   return (
     <div className="logo" onClick={onHandleTheme}>
-      <img
-        src={
-          navState === "open"
-            ? "src/assets/logo.svg"
-            : "src/assets/logograph.svg"
-        }
-      ></img>
+      {navState === "open" ? <LogoIcon /> : <LogogrpahIcon />}
     </div>
   );
 }
@@ -80,13 +78,10 @@ function ModuleBtn() {
         }
       >
         <div className="btn-icon">
-          <img
-            className="icon-24"
-            src="src/assets/icons_general/folder_node_inv.svg"
-          />
+          <FileBrokenIcon />
         </div>
         <p>Title</p>
-        <img className="arrow" src="src/assets/arrow_down.svg" />
+        <ArrowDownIcon />
       </div>
       {toggleDropdown === "open" ? (
         <ul>
