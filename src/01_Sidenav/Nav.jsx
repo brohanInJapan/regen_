@@ -1,12 +1,12 @@
 import { useContext, createContext } from "react";
 import { useState } from "react";
 
-import { LogoIcon } from "./assets/LogoIcon";
-import { LogogrpahIcon } from "./assets/LogographIcon";
-import { FileBrokenIcon } from "./assets/FileBrokenIcon";
-import { ArrowDownIcon } from "./assets/ArrowDownIcon";
-import PlugIcon from "./assets/PlugIcon";
-import PlugIcon_s from "./assets/PlugIcon_s";
+import { LogoIcon } from "../assets/LogoIcon";
+import { LogogrpahIcon } from "../assets/LogographIcon";
+import FileBrokenIcon from "../assets/FileBrokenIcon";
+import { ArrowDownIcon } from "../assets/ArrowDownIcon";
+import PlugIcon from "../assets/PlugIcon";
+import PlugIcon_s from "../assets/PlugIcon_s";
 
 const toggleNavContext = createContext({});
 

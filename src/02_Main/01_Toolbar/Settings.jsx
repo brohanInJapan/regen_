@@ -1,5 +1,6 @@
 import { createContext, useContext, useRef, useState, useEffect } from "react";
-import { FileBrokenIcon } from "./assets/FileBrokenIcon";
+import FileBrokenIcon from "../../assets/FileBrokenIcon";
+import Button from "../../03_Generic/Button";
 
 const toggleModuleState = createContext({});
 
@@ -19,7 +20,7 @@ export function Settings({ onToggleModule }) {
 function Profile() {
   return (
     <div className="btn-icon space-right">
-      <FileBrokenIcon />
+      <FileBrokenIcon fill_a="#fff" />
     </div>
   );
 }
@@ -42,7 +43,9 @@ function Search() {
       />
       <p>Current Value: {inputValue}</p>
       <p>Previous Value: {previousInputValue.current}</p>
-      <button onClick={storeSubmition}>submit</button>
+      <Button styleClass={"btn"} onClick={storeSubmition}>
+        submit
+      </Button>
     </>
   );
 }
@@ -66,7 +69,7 @@ function MapTest() {
 
   return (
     <div className="can-click" onClick={() => setModuleState("map")}>
-      <FileBrokenIcon />
+      <FileBrokenIcon fill_a={"pink"} />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
-import MenuToggleIcon from "./assets/icons_general/MenuToggleIcon";
-import HomeIcon from "./assets/icons_general/HomeIcon";
+import MenuToggleIcon from "../../assets/icons_general/MenuToggleIcon";
+import HomeIcon from "../../assets/icons_general/HomeIcon";
 
 export function Breadcrums({ ...onToggleNavState }) {
   const navStateProps = { ...onToggleNavState.onToggleNavState };

@@ -1,7 +1,8 @@
 import { createContext, useContext } from "react";
-import { Toolbar } from "./Toolbar";
+import { Toolbar } from "./01_Toolbar/Toolbar";
 import { Map } from "./Map";
-import { FileBrokenIcon } from "./assets/fileBrokenIcon";
+import FileBrokenIcon from "../assets/fileBrokenIcon";
+import Button from "../03_Generic/Button";
 
 const toggleModuleState = createContext({});
 
@@ -36,35 +37,37 @@ function TestHome() {
   return (
     <>
       <h1>Home Screen</h1>
-      <FileBrokenIcon />
+      <FileBrokenIcon fill_a={"pink"} />
 
-      <button className="btn">
+      <Button styleClass={"btn"}>
         <p>DELETE</p>
-        <FileBrokenIcon className="icon-24" />
-      </button>
+        <FileBrokenIcon />
+      </Button>
 
-      <button className="btn">
+      <Button styleClass={"btn"}>
         <FileBrokenIcon />
         <div>
           <p>title</p>
           <p>test text</p>
         </div>
-      </button>
+      </Button>
 
-      <button className="btn-danger">
+      <Button styleClass={"btn-danger"}>
+        {console.log("this one")}
+        <FileBrokenIcon fall_a={"pink"} />
         <div>
           <p>DELETE</p>
           <p>test text</p>
         </div>
-      </button>
+      </Button>
 
-      <button className="btn-info">
+      <Button styleClass={"btn-info"}>
         <FileBrokenIcon />
-      </button>
+      </Button>
 
-      <button className="btn-warning">
+      <Button styleClass={"btn-warning"}>
         <p>ACCEPT</p>
-      </button>
+      </Button>
     </>
   );
 }

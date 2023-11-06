@@ -2,9 +2,9 @@
   --ff-sans: sans-serif;
   --ff-serif: serif;
 
-  --fs-200: 0.75rem;
-  --fs-300: 0.875rem;
-  --fs-400: 1rem;
+  --fs-200: 0.65rem;
+  --fs-300: 0.75rem;
+  --fs-400: 0.875rem;
   --fs-500: 1.875rem;
   --fs-700: 2.25rem;
   --fs-900: 3rem;
@@ -25,17 +25,17 @@
   --clr-neutral-100: #f8f9fa;
   --clr-neutral-200: #e9ecef;
   --clr-neutral-300: #dee2e6;
-  /* --clr-neutral-400: #ced4da;
+  --clr-neutral-400: #ced4da;
   --clr-neutral-500: #adb5bd;
   --clr-neutral-600: #6c757d;
   --clr-neutral-700: #495057;
   --clr-neutral-800: #343a40;
-  --clr-neutral-900: #212529; */
+  --clr-neutral-900: #212529;
 
   --clr-info: #17c1e8;
   --clr-sucess: #77c376;
-  --clr-danger: #d36c6c;
   --clr-warning: #ffcb00;
+  --clr-danger: #d36c6c;
 
   --clr-white: #fff;
   --clr-black: #000;
@@ -99,12 +99,14 @@ body.dar {
 }
 
 body.dark {
-  --clr-primary: #59606d;
-  --clr-secondary: #e4a11b;
+  --clr-accent: #deac5d;
 
-  --clr-neutral-100: #2169b0;
-  --clr-neutral-200: #0d4379;
-  --clr-neutral-300: #062a49;
+  --clr-primary: #404650;
+  --clr-secondary: #f9f9f9;
+
+  --clr-neutral-100: #404650;
+  --clr-neutral-200: #353941;
+  --clr-neutral-300: #1f2126;
 
   --_shadow: var(--clr-neutral-100);
   --_highlight: color-mix(in srgb, var(--clr-neutral-400) 20%, transparent);
@@ -176,7 +178,7 @@ nav {
 
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 5rem 1fr 3rem;
+  grid-template-rows: 5rem 1fr 2.5rem;
   grid-template-areas:
     "logo"
     "items"
@@ -268,7 +270,14 @@ nav.closed .module {
   grid-area: plug;
 
   justify-self: center;
-  align-self: center;
+  align-self: flex-end;
+
+  display: flex;
+  align-items: end;
+}
+
+nav.closed .plug svg {
+  width: 2.5rem;
 }
 
 /* MAIN */
@@ -321,7 +330,7 @@ main {
 
 .breadcrums {
   display: flex;
-  align-items: end;
+  align-items: center;
   gap: var(--gap-s);
 }
 
@@ -389,8 +398,11 @@ main {
   width: max-content;
   min-height: 32px;
 
-  font-size: 0.875rem;
-  font-weight: 700;
+  --_foreground: var(--clr-primary);
+  --_background: var(--clr-secondary);
+
+  font-size: var(--fs-300);
+  font-weight: 400;
   text-transform: uppercase;
   color: var(--_foreground, var(--clr-primary));
 
@@ -399,6 +411,9 @@ main {
   justify-items: start;
   align-items: center;
   cursor: pointer;
+
+  padding-block: unset;
+  padding-inline: unset;
 
   padding: var(--gap-m);
   border-radius: var(--br);
@@ -417,7 +432,7 @@ main {
     align-items: start;
 
     & p + p {
-      font-size: 0.75rem;
+      font-size: var(--fs-200);
       text-transform: unset;
     }
   }
@@ -482,4 +497,17 @@ main {
 
 .space-right {
   margin-right: var(--gap-m);
+}
+
+input {
+  border-radius: var(--br);
+  outline: 0.08rem solid var(--clr-neutral-300);
+  border: none;
+
+  padding: 0.5rem;
+}
+
+input:hover,
+input:focus {
+  outline: 0.17rem solid var(--clr-accent);
 }

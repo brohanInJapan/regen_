@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Module } from "./Module";
-import { Nav } from "./Nav";
+import { Module } from "./02_Main/Module";
+import { Nav } from "./01_Sidenav/Nav";
 
 export default function App() {
   const [navState, setNavState] = useState("closed");
