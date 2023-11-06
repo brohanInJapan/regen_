@@ -55,28 +55,26 @@ function Modules() {
 }
 
 function ModuleBtn() {
-  const [toggleDropdown, setToggleDropdown] = useState("closed");
+  const [isDropdownToggled, setIsDropdownToggled] = useState(false);
 
   const onToggleNav = useContext(toggleNavContext);
   const navState = onToggleNav.navState;
-  const setNavState = onToggleNav.setNavState;
+  const handleNavState = onToggleNav.handleNavState;
 
   function handleToggleDropdown() {
-    if (navState !== "open") return;
+    if (navState === "closed") handleNavState();
 
-    toggleDropdown === "open"
-      ? setToggleDropdown("closed")
-      : setToggleDropdown("open");
+    setIsDropdownToggled((toggleDropdown) => !toggleDropdown);
   }
 
   return (
     <>
       <div
-        className={"module"}
+        className={isDropdownToggled ? "module-selected" : "module"}
         onClick={handleToggleDropdown}
         onChange={
-          navState === "closed" && toggleDropdown === "open"
-            ? setToggleDropdown("closed")
+          navState === "closed" && isDropdownToggled
+            ? setIsDropdownToggled(false)
             : null
         }
       >
@@ -86,7 +84,7 @@ function ModuleBtn() {
         <p>Title</p>
         <ArrowDownIcon />
       </div>
-      {toggleDropdown === "open" ? (
+      {isDropdownToggled ? (
         <ul>
           <li>test</li>
           <li>test</li>

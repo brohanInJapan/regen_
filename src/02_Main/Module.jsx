@@ -53,7 +53,6 @@ function TestHome() {
       </Button>
 
       <Button styleClass={"btn-danger"}>
-        {console.log("this one")}
         <FileBrokenIcon fall_a={"pink"} />
         <div>
           <p>DELETE</p>

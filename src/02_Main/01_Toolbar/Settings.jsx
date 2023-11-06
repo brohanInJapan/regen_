@@ -19,7 +19,7 @@ export function Settings({ onToggleModule }) {
 
 function Profile() {
   return (
-    <div className="btn-icon space-right">
+    <div className="btn-icon">
       <FileBrokenIcon fill_a="#fff" />
     </div>
   );
