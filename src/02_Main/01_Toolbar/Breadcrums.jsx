@@ -2,13 +2,13 @@
 import MenuToggleIcon from "../../assets/icons_general/MenuToggleIcon";
 import HomeIcon from "../../assets/icons_general/HomeIcon";
 
-export function Breadcrums({ ...onToggleNavState }) {
-  const navStateProps = { ...onToggleNavState.onToggleNavState };
-  const handleNavState = navStateProps.handleNavState;
-
+export function Breadcrums({ onHandleState }) {
   return (
-    <div className="changename" onClick={handleNavState}>
-      <MenuToggleIcon />
+    <div className="changename">
+      <div className="can-click" onClick={onHandleState}>
+        <MenuToggleIcon />
+      </div>
+
       <div>
         <div className="breadcrums">
           <HomeIcon />

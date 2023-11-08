@@ -1,4 +1,3 @@
-import { useContext, createContext } from "react";
 import { useState } from "react";
 
 import { LogoIcon } from "../assets/LogoIcon";
@@ -8,28 +7,11 @@ import { ArrowDownIcon } from "../assets/ArrowDownIcon";
 import PlugIcon from "../assets/PlugIcon";
 import PlugIcon_s from "../assets/PlugIcon_s";
 
-const toggleNavContext = createContext({});
-
-export function Nav({ ...onToggleNavState }) {
-  const navStateProps = { ...onToggleNavState.onToggleNavState };
-  const toggleNav = navStateProps.navState;
-
-  return (
-    <nav
-      className={toggleNav === "open" ? "unselectable" : "closed unselectable"}
-    >
-      <toggleNavContext.Provider value={navStateProps}>
-        <Logo />
-        <Modules />
-        <Plug />
-      </toggleNavContext.Provider>
-    </nav>
-  );
+export function Nav({ children, className }) {
+  return <nav className={className}>{children}</nav>;
 }
 
-function Logo() {
-  const onToggleNav = useContext(toggleNavContext);
-  const navState = onToggleNav.navState;
+export function Logo({ navState }) {
   const [theme, setTheme] = useState("dark");
 
   function onHandleTheme() {
@@ -43,27 +25,21 @@ function Logo() {
   );
 }
 
-function Modules() {
-  return (
-    <div className="modules">
-      <ModuleBtn />
-      <ModuleBtn />
-      <ModuleBtn />
-      <ModuleBtn />
-    </div>
-  );
+export function Modules({ children }) {
+  return <div className="modules">{children}</div>;
 }
 
-function ModuleBtn() {
+export function ModuleBtn({
+  navState,
+  onHandleState,
+  icon = <FileBrokenIcon />,
+  title = "Title",
+  children,
+}) {
   const [isDropdownToggled, setIsDropdownToggled] = useState(false);
 
-  const onToggleNav = useContext(toggleNavContext);
-  const navState = onToggleNav.navState;
-  const handleNavState = onToggleNav.handleNavState;
-
   function handleToggleDropdown() {
-    if (navState === "closed") handleNavState();
-
+    if (navState === "closed") onHandleState();
     setIsDropdownToggled((toggleDropdown) => !toggleDropdown);
   }
 
@@ -78,17 +54,13 @@ function ModuleBtn() {
             : null
         }
       >
-        <div className="btn-icon">
-          <FileBrokenIcon />
-        </div>
-        <p>Title</p>
+        <div className="btn-icon">{icon}</div>
+        <p>{title}</p>
         <ArrowDownIcon />
       </div>
       {isDropdownToggled ? (
         <ul>
-          <li>test</li>
-          <li>test</li>
-          <li>test</li>
+          {children}
           <li>test</li>
         </ul>
       ) : (
@@ -98,10 +70,11 @@ function ModuleBtn() {
   );
 }
 
-function Plug() {
-  const onToggleNav = useContext(toggleNavContext);
-  const navState = onToggleNav.navState;
+export function ModuleItem({ item = "no content" }) {
+  return <li>{item}</li>;
+}
 
+export function Plug({ navState }) {
   return (
     <div className="plug">
       {navState === "open" ? <PlugIcon /> : <PlugIcon_s />}
