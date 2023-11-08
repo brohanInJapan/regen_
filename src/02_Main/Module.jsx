@@ -1,4 +1,5 @@
 import { Map } from "./Map";
+import { Settings } from "./Settings";
 import Button from "../03_Generic/Button";
 
 export function Module({ children }) {
@@ -10,7 +11,7 @@ export function ModuleWindow({ moduleState }) {
     <div className="container">
       {moduleState === "home" && <TestHome />}
       {moduleState === "map" && <Map />}
-      {moduleState === "settings"}
+      {moduleState === "settings" && <Settings />}
     </div>
   );
 }

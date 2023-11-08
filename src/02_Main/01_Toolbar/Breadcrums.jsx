@@ -2,10 +2,10 @@
 import MenuToggleIcon from "../../assets/icons_general/MenuToggleIcon";
 import HomeIcon from "../../assets/icons_general/HomeIcon";
 
-export function Breadcrums({ onHandleState }) {
+export function Breadcrums({ onClick, moduleState = "" }) {
   return (
     <div className="changename">
-      <div className="can-click" onClick={onHandleState}>
+      <div className="can-click" onClick={onClick}>
         <MenuToggleIcon />
       </div>
 
@@ -14,7 +14,7 @@ export function Breadcrums({ onHandleState }) {
           <HomeIcon />
           <Crums />
         </div>
-        <p className="page-title">Page Title</p>
+        <p className="page-title">{moduleState.toLocaleUpperCase()}</p>
       </div>
     </div>
   );

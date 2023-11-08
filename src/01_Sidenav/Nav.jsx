@@ -31,15 +31,16 @@ export function Modules({ children }) {
 
 export function ModuleBtn({
   navState,
-  onHandleState,
+  onHandleNavState,
   icon = <FileBrokenIcon />,
   title = "Title",
   children,
+  onClick,
 }) {
   const [isDropdownToggled, setIsDropdownToggled] = useState(false);
 
   function handleToggleDropdown() {
-    if (navState === "closed") onHandleState();
+    if (navState === "closed") onHandleNavState();
     setIsDropdownToggled((toggleDropdown) => !toggleDropdown);
   }
 
@@ -47,7 +48,7 @@ export function ModuleBtn({
     <>
       <div
         className={isDropdownToggled ? "module-selected" : "module"}
-        onClick={handleToggleDropdown}
+        onClick={onClick}
         onChange={
           navState === "closed" && isDropdownToggled
             ? setIsDropdownToggled(false)
@@ -58,14 +59,7 @@ export function ModuleBtn({
         <p>{title}</p>
         <ArrowDownIcon />
       </div>
-      {isDropdownToggled ? (
-        <ul>
-          {children}
-          <li>test</li>
-        </ul>
-      ) : (
-        <></>
-      )}
+      {isDropdownToggled ? <ul>{children}</ul> : <></>}
     </>
   );
 }

@@ -7,26 +7,21 @@ export function QuickAccess({ children }) {
   return <div className="settings">{children}</div>;
 }
 
-export function Profile() {
+export function Profile({ user }) {
   return (
-    <div className="btn-icon">
-      <FileBrokenIcon fill_a="#fff" />
-    </div>
+    <>
+      <div className="btn-icon">
+        <FileBrokenIcon fill_a="#fff" />
+      </div>
+      <p>Hello, {user.name} </p>
+    </>
   );
 }
 
 export function Setting({ onClick }) {
-  return (
-    <div className="can-click" onClick={onClick}>
-      <FileBrokenIcon />
-    </div>
-  );
+  return <FileBrokenIcon className="can-click" onClick={onClick} size={24} />;
 }
 
 export function MapTest({ onClick }) {
-  return (
-    <div className="can-click" onClick={onClick}>
-      <FileBrokenIcon fill_a={"pink"} />
-    </div>
-  );
+  return <FileBrokenIcon className="can-click" onClick={onClick} size={24} />;
 }

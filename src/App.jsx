@@ -17,7 +17,12 @@ import {
   MapTest,
 } from "./02_Main/01_Toolbar/QuickAccess";
 
+import { usersMap } from "./Users";
+
 export default function App() {
+  const [user, setUser] = useState(usersMap[0]);
+  const modules = user.modules;
+
   const [navState, setNavState] = useState("closed");
   const [moduleState, setModuleState] = useState("home");
 
@@ -32,31 +37,37 @@ export default function App() {
       document.getElementById("root").classList.remove("closed");
     }
   };
-
   return (
     <>
       <Nav
         className={navState === "open" ? "unselectable" : "closed unselectable"}
-        onToggleModule={{ moduleState, setModuleState }}
       >
         <Logo navState={navState} />
+
         <Modules>
-          <ModuleBtn navState={navState} onHandleState={handleNavState}>
-            <ModuleItem item={"hello?"} />
-            <ModuleItem />
-          </ModuleBtn>
+          {modules.map((module) => (
+            <ModuleBtn
+              key={module}
+              navState={navState}
+              onHandleNavState={handleNavState}
+              title={module}
+              onClick={() => setModuleState(module)}
+            ></ModuleBtn>
+          ))}
         </Modules>
+
         <Plug navState={navState} />
       </Nav>
 
-      <Module
-        onToggleNavState={{ navState, setNavState, handleNavState }}
-        onToggleModule={{ moduleState, setModuleState }}
-      >
+      <Module>
         <Toolbar>
-          <Breadcrums onHandleState={handleNavState} />
+          <Breadcrums
+            onClick={() => handleNavState()}
+            moduleState={moduleState}
+          />
+
           <QuickAccess>
-            <Profile />
+            <Profile user={user} />
             <Setting onClick={() => setModuleState("home")} />
             <MapTest onClick={() => setModuleState("map")} />
           </QuickAccess>

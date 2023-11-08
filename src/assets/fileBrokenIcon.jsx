@@ -1,14 +1,19 @@
 export default function FileBrokenIcon({
+  className = "",
+  size = 32,
   fill_a = "#5a606d",
   fill_b = "#adb5bd",
+  onClick,
 }) {
   console.log;
   return (
     <svg
+      className={className}
+      onClick={onClick}
       id="file_broken_inv"
       xmlns="http://www.w3.org/2000/svg"
-      width="32"
-      height="32"
+      width={`${size}`}
+      height={`${size}`}
       viewBox="0 0 32 32"
     >
       <path
@@ -26,8 +31,8 @@ export default function FileBrokenIcon({
       <rect
         id="Rectangle_653"
         data-name="Rectangle 653"
-        width="32"
-        height="32"
+        width={`${size}`}
+        height={`${size}`}
         fill="none"
       />
     </svg>
