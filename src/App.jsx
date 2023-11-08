@@ -17,14 +17,18 @@ import {
   MapTest,
 } from "./02_Main/01_Toolbar/QuickAccess";
 
-import { usersMap } from "./Users";
+import { usersData } from "./Data/UsersData";
+import { moduleData } from "./Data/ModulesData";
 
 export default function App() {
-  const [user, setUser] = useState(usersMap[0]);
+  const [user, setUser] = useState(usersData[0]);
+  const [module, setModule] = useState(...moduleData);
   const modules = user.modules;
 
+  console.log(module.Home);
+
   const [navState, setNavState] = useState("closed");
-  const [moduleState, setModuleState] = useState("home");
+  const [moduleState, setModuleState] = useState("Home");
 
   const handleNavState = () => {
     if (navState === "open") {
@@ -45,13 +49,14 @@ export default function App() {
         <Logo navState={navState} />
 
         <Modules>
-          {modules.map((module) => (
+          {modules.map((_module) => (
             <ModuleBtn
-              key={module}
+              key={_module}
               navState={navState}
               onHandleNavState={handleNavState}
-              title={module}
-              onClick={() => setModuleState(module)}
+              title={_module}
+              onClick={() => setModuleState(_module)}
+              icon={module[_module]}
             ></ModuleBtn>
           ))}
         </Modules>
@@ -63,6 +68,7 @@ export default function App() {
         <Toolbar>
           <Breadcrums
             onClick={() => handleNavState()}
+            onHome={() => setModuleState("home")}
             moduleState={moduleState}
           />
 

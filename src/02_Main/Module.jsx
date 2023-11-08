@@ -9,9 +9,9 @@ export function Module({ children }) {
 export function ModuleWindow({ moduleState }) {
   return (
     <div className="container">
-      {moduleState === "home" && <TestHome />}
-      {moduleState === "map" && <Map />}
-      {moduleState === "settings" && <Settings />}
+      {moduleState === "Home" && <TestHome />}
+      {moduleState === "Map" && <Map />}
+      {moduleState === "Settings" && <Settings />}
     </div>
   );
 }

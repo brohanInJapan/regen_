@@ -1,9 +1,11 @@
-const HomeIcon = (props) => {
+const HomeIcon = ({ onClick, className = "" }) => {
   return (
     <svg
+      className={className}
+      onClick={onClick}
+      width="20"
       height="20"
       id="home_inv"
-      width="20"
       viewBox="0 0 20 20"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -13,13 +15,6 @@ const HomeIcon = (props) => {
         fill="#a1a6ae"
         transform="translate(-2.542 -2.273)"
         data-name="Path 896"
-      />
-      <rect
-        height="20"
-        id="Rectangle_748"
-        width="20"
-        fill="none"
-        data-name="Rectangle 748"
       />
     </svg>
   );
