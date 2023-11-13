@@ -10,7 +10,7 @@ export function Map() {
   });
 
   return (
-    <>
+    <div className="container">
       <MapContainer
         id="map"
         center={position.iglobe}
@@ -28,6 +28,6 @@ export function Map() {
           <Popup>Welkom by iGlobe, jou pragtige bliksem, jy</Popup>
         </Marker>
       </MapContainer>
-    </>
+    </div>
   );
 }

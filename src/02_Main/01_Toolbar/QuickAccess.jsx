@@ -1,10 +1,7 @@
-import { createContext, useContext, useRef, useState, useEffect } from "react";
 import FileBrokenIcon from "../../assets/FileBrokenIcon";
 
-const toggleModuleState = createContext({});
-
 export function QuickAccess({ children }) {
-  return <div className="settings">{children}</div>;
+  return <div className="quick-access">{children}</div>;
 }
 
 export function Profile({ user }) {
@@ -13,7 +10,7 @@ export function Profile({ user }) {
       <div className="btn-icon">
         <FileBrokenIcon fill_a="#fff" />
       </div>
-      <p>Hello, {user.name} </p>
+      <p>{user.username ? `Hello, ${user?.username}` : "Username not set"} </p>
     </>
   );
 }

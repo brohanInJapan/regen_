@@ -1,13 +1,9 @@
 import { useState } from "react";
+
+import { Nav, Logo, Modules, ModuleBtn, Plug } from "./01_Sidenav/Nav";
+
 import { Module, ModuleWindow } from "./02_Main/Module";
-import {
-  Nav,
-  Logo,
-  Modules,
-  ModuleBtn,
-  ModuleItem,
-  Plug,
-} from "./01_Sidenav/Nav";
+
 import { Toolbar } from "./02_Main/01_Toolbar/Toolbar";
 import { Breadcrums } from "./02_Main/01_Toolbar/Breadcrums";
 import {
@@ -17,15 +13,16 @@ import {
   MapTest,
 } from "./02_Main/01_Toolbar/QuickAccess";
 
+import { Map } from "./02_Main/Map";
+import { Settings } from "./02_Main/02_Settings/Settings";
+
 import { usersData } from "./Data/UsersData";
 import { moduleData } from "./Data/ModulesData";
 
 export default function App() {
-  const [user, setUser] = useState(usersData[0]);
-  const [module, setModule] = useState(...moduleData);
-  const modules = user.modules;
-
-  console.log(module.Home);
+  const [user] = useState(usersData[0]);
+  const [posibleModules] = useState(moduleData);
+  const userModules = user.modules;
 
   const [navState, setNavState] = useState("closed");
   const [moduleState, setModuleState] = useState("Home");
@@ -44,19 +41,23 @@ export default function App() {
   return (
     <>
       <Nav
-        className={navState === "open" ? "unselectable" : "closed unselectable"}
+        className={
+          navState === "open"
+            ? "unselectable sidenav "
+            : "closed unselectable sidenav"
+        }
       >
         <Logo navState={navState} />
 
         <Modules>
-          {modules.map((_module) => (
+          {userModules.map((_module) => (
             <ModuleBtn
               key={_module}
               navState={navState}
               onHandleNavState={handleNavState}
               title={_module}
               onClick={() => setModuleState(_module)}
-              icon={module[_module]}
+              icon={posibleModules[0][_module]}
             ></ModuleBtn>
           ))}
         </Modules>
@@ -74,13 +75,25 @@ export default function App() {
 
           <QuickAccess>
             <Profile user={user} />
-            <Setting onClick={() => setModuleState("home")} />
-            <MapTest onClick={() => setModuleState("map")} />
+            <Setting />
+            <MapTest />
           </QuickAccess>
         </Toolbar>
 
-        <ModuleWindow moduleState={moduleState} />
+        <ModuleWindow moduleState={moduleState}>
+          {moduleState === "Home" && <TestHome />}
+          {moduleState === "Map" && <Map />}
+          {moduleState === "Settings" && <Settings user={user} />}
+        </ModuleWindow>
       </Module>
+    </>
+  );
+}
+
+function TestHome() {
+  return (
+    <>
+      <h2>Home Screen</h2>
     </>
   );
 }

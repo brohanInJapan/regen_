@@ -12,7 +12,7 @@ export function Nav({ children, className }) {
 }
 
 export function Logo({ navState }) {
-  const [theme, setTheme] = useState("dark");
+  const [theme] = useState("dark");
 
   function onHandleTheme() {
     document.body.classList.toggle(theme);
@@ -31,7 +31,7 @@ export function Modules({ children }) {
 
 export function ModuleBtn({
   navState,
-  onHandleNavState,
+  // onHandleNavState,
   icon = <FileBrokenIcon />,
   title = "Title",
   children,
@@ -39,10 +39,10 @@ export function ModuleBtn({
 }) {
   const [isDropdownToggled, setIsDropdownToggled] = useState(false);
 
-  function handleToggleDropdown() {
-    if (navState === "closed") onHandleNavState();
-    setIsDropdownToggled((toggleDropdown) => !toggleDropdown);
-  }
+  // function handleToggleDropdown() {
+  //   if (navState === "closed") onHandleNavState();
+  //   setIsDropdownToggled((toggleDropdown) => !toggleDropdown);
+  // }
 
   return (
     <>
